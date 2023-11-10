@@ -51,7 +51,7 @@ export function deleteFile(fileName: string) {
 
 export function checkFile(path: string, fileName: string) {
   const ext = parse(path).ext.slice(1);
-  let output = {
+  let output: ValidFileType = {
     status: false,
     output: "",
     extension_from: ext.toUpperCase(),
@@ -65,4 +65,11 @@ export function checkFile(path: string, fileName: string) {
     output.output = `${process.cwd()}/output/${fileName}.yaml`
   }
   return output;
+}
+
+export interface ValidFileType {
+  status: boolean;
+  output: string;
+  extension_from: string;
+  extension_to: string;
 }
