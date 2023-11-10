@@ -1,8 +1,7 @@
-import { config } from "dotenv";
+import "dotenv/config.js";
 import { Client } from "./struct/client.js";
 
 function main() {
-  config();
   const token: string = process.env.TOKEN!;
 
   new Client(token).start();
